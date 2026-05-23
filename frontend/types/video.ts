@@ -10,3 +10,8 @@ export type Video = {
   trend_score: number;
   audio_name?: string;
 };
+
+export type AudioTrend = {
+  audio_name: string;
+  count: number;
+};
