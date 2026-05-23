@@ -16,6 +16,14 @@ async def refresh_scrape(db: Session) -> int:
     for videos in batches:
         for v in videos:
             existing = db.scalar(select(Video).where(Video.url == v["url"]))
+            if not existing and v.get("media_url"):
+                existing = db.scalar(
+                    select(Video).where(
+                        Video.platform == v["platform"],
+                        Video.media_url == v["media_url"],
+                        Video.creator_name == v.get("creator_name"),
+                    )
+                )
             score = calculate_trend_score(v["views"], v["likes"], v["comments"], v["shares"], v["followers"])
             if existing:
                 for key, value in v.items():

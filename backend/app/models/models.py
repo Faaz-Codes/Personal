@@ -50,3 +50,6 @@ class Video(Base):
     scraped_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     trend_score: Mapped[float] = mapped_column(Float, default=0.0, index=True)
     thumbnail_url: Mapped[str | None] = mapped_column(String(1000), nullable=True)
+    media_url: Mapped[str | None] = mapped_column(String(1000), nullable=True)
+    post_age: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    subreddit: Mapped[str | None] = mapped_column(String(128), index=True, nullable=True)
