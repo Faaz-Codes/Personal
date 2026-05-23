@@ -20,6 +20,9 @@ class VideoOut(BaseModel):
     scraped_at: datetime
     trend_score: float
     thumbnail_url: str | None = None
+    media_url: str | None = None
+    post_age: str | None = None
+    subreddit: str | None = None
 
     class Config:
         from_attributes = True
