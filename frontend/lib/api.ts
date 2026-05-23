@@ -19,5 +19,5 @@ export function getExplodingVideos(): Promise<Video[]> {
 }
 
 export function getTopAudios(): Promise<AudioTrend[]> {
-  return fetchJson<AudioTrend[]>("/videos/top-audios");
+  return fetchJson<AudioTrend[]>("/audios/top");
 }
